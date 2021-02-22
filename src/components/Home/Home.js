@@ -30,7 +30,7 @@ const Home = () => {
         position="relative"/>
             </div> 
     </div>       
-    
+    <h1 className="text-center border display-3">Productos Destacados Del Mes</h1>
 
     </>;
 };

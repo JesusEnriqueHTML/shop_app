@@ -1,0 +1,35 @@
+.flex-template{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.flex-template > div{
+    margin-left:2%;
+}
+.descripcion{
+    margin-right: 2%;
+    width : 50%;
+    height: 100%;
+    border: 1px solid black;
+}
+.descripcion > h1{
+    text-align: center;
+}
+.descripcion1{
+    margin-right: 2%;
+    width : 50%;
+    height: 100%;
+    border: 1px solid black;
+}
+.descripcion1 > h1{
+    text-align: center;
+}
+body {
+    background-color:pink;
+}
+.welcome{
+    margin-left: 19%;
+}

@@ -1,0 +1,19 @@
+.header{
+    background-image: url(pink.jpg);
+    background-size: cover;
+    border: 1px solid rgb(255, 102, 153);
+    height:245px;
+    padding: 1%;
+    margin-bottom: 3px;
+}
+
+h1{
+    color: black;
+}
+.span{
+    color: #03edff;
+    margin-top: 10%;
+    font-size: 70px;
+}
+
+

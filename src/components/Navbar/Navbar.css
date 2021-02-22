@@ -1,0 +1,22 @@
+.barraDeNavegacion{
+  background-color: #ff92fe;
+  border: 1px solid fuchsia;
+}
+.BuscadorCompra{
+  margin-left: 50%;
+}
+.imageJ{
+  width: 5%;
+}
+.search{
+  margin-top:24px;
+}
+button:hover{
+ border-color: fuchsia ;
+}
+.carrito{
+  width: 7%;
+}
+.Jhonny{
+  width:5%;
+}

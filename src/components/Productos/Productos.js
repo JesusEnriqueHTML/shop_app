@@ -34,15 +34,15 @@ export default class Productos extends React.Component {
                 <div key={manga.id} className=" container mt-2 mb-2 d-flex">
                     <div className="d-flex flex-row mt-2 container-fluid">
                         <div className="col border">
-                            <img className="imagenesdd" src={manga.imagen} alt={manga.name}/>
+                            <img className="imagenesddd" src={manga.imagen} alt={manga.name}/>
                         </div>
                         <div className="col description border">
                         
-                            <h3><Link to={`/nuevo/${manga.id}`}>{manga.name}</Link></h3>
+                            <h3>{manga.name}</h3>
                             <div class="">
                                 Descripcion: {manga.descripcion} <br/>
                                 Precio: {manga.precio} euros <br/>
-                                <button type="button" class="btn btn-primary">Detalles</button>
+                                <button type="button" class="btn btn-primary mt-3"><Link to={`/nuevo/${manga.id}`}><p className="text-white mt-2">Detalles</p></Link></button>
                             </div>  
                         </div>
                     </div>

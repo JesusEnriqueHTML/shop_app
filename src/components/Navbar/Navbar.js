@@ -14,62 +14,26 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
+                <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li className="nav-item mt-2">
                         <NavLink to='/home' className="nav-link active" aria-current="page" >Home</NavLink>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mt-2">
                         <NavLink to='/productos' className='nav-link'>Productos</NavLink>
                     </li>
-                    <form class="form-inline mr-5 ml-3">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        </ul>
-
-            <div className="btn-group">
-            <div className="modal" id="myModal">
-        <div className="modal-dialog">
-            <div className="modal-content">
-
-                
-                <div className="modal-header">
-                    <h4 className="modal-title">Customer Sign In</h4>
-                    <button type="button" className="close" data-dismiss="modal">×</button>
-                </div>
-
-                <div className="modal-body">
-                    <form>
-                        <label className="sr-only" for="usrname">Username</label>
-                        <div className="input-group mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="basic-addon1"><i className="fa fa-user"></i></span> 
-                            </div>
-                            <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
-                        </div>
-
-
-                        <label className="sr-only" for="Password">Name</label>
-                        <div className="input-group mb-2">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="basic-addon2"><i className="fa fa-key"></i></span>
-                            </div>
-                            <input id="Password" type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2"/>
-                        </div>
+                    <form className="form-inline mr-5 ml-3 mb-2">
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                </div>
+                    </ul>
+                    <div className="btn-group mt-2 mb-3" role="group" aria-label="Basic example">
+                    <NavLink to='/form/identificarse' className='nav-link'><button type="button" className="btn btn-dark mr-1">Inicar Sesion</button></NavLink>
+                    <NavLink to='/form/inicioSesion' className='nav-link'><button type="button" className="btn btn-dark mr-1">Registrarse</button></NavLink>
+                    </div>
+       
 
-                <div className="modal-footer">
-                    <button type="submit" class="btn btn-primary" >Sign In</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
 
             </div>
-        </div>
-    </div>
-    </div>
-
-</div>
             </div>
         </nav>
     );

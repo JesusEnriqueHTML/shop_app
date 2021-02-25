@@ -3,10 +3,15 @@ import './Header.css';
 import logo from './jhonny.png';
 
 const Header = () => 
-<div className=" header d-flex flex-row justify-content-center">
-    <img src={logo} className="img-fluid imagen"/>
-
-<h2 class="text-center mt-5 display-4">Absolute Comics</h2>
-</div>
+<header className="row mx-auto">
+    <div className="col"></div>
+    <div className="col">
+        <img src={logo} className="img-fluid ml-5 mb-3"/>
+    </div>
+    <div className="col">
+    <h2 className="text-center title h1">Absolute Comics</h2>
+    </div>
+    <div className="col"></div>
+</header>
 ;
 export default Header;

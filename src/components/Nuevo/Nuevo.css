@@ -1,0 +1,9 @@
+.imagenesdd{
+    width: 15%;
+}
+div > img.imagenesdd{
+    margin-left: 20%;
+}
+.info{
+    margin-top: 8%;
+}

@@ -35,9 +35,8 @@ const App = () => (
       <Home />
       <Destacados />
     </Route>
-    <Route path="/productos">
+    <Route path="/products/:pageNumber">
       < Productos />
-      < Pagination />
     </Route>
     <Route path="/nuevo/:mangaId">
         <Nuevo />

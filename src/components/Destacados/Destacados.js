@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Destacados.css";
-import ListProduct from "../ListProduct";
+import ProductList from "../ProductList";
 
 const Destacados = () => {
     const[mangas, setMangas] = useState([]);
@@ -11,7 +11,7 @@ const Destacados = () => {
     }, []);
     
     return <>
-    <ListProduct mangas = {mangas.slice(0, 2)}/>
+    <ProductList mangas = {mangas.slice(0, 2)}/>
     </>;
 };
 

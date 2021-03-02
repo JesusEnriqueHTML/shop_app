@@ -1,4 +1,6 @@
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
 import './Navbar.css';
 import logo from './carrito.png';
 import logo1 from './jhonny1.png';
@@ -6,6 +8,9 @@ import logo1 from './jhonny1.png';
 
 
 const Navbar = () => {
+
+    const[search, setSearch] = useState({});
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light sticky-top justify-content-between">
         <div className="container-fluid barraDeNavegacion ">
@@ -21,10 +26,12 @@ const Navbar = () => {
                     <li className="nav-item mt-2">
                         <NavLink to='/products/0' className='nav-link'>Productos</NavLink>
                     </li>
+
                     <form className="form-inline mr-5 ml-3 mb-2">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(event) => setSearch(event.target.value)}/>
+                        <NavLink to={`/query/${search}`}><button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button></NavLink>
                     </form>
+
                     </ul>
                     <div className="btn-group mt-2 mb-3" role="group" aria-label="Basic example">
                     <NavLink to='/form/identificarse' className='nav-link'><button type="button" className="btn btn-dark mr-1">Inicar Sesion</button></NavLink>

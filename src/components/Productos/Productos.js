@@ -42,19 +42,15 @@ const Productos = () => {
   
     {/*Esta sentencia crea una variable producto que va a ser una array que iremos rellenando con los datos que obtenemos del fetch a la base de datos. Se lo pasamos a ProductList */}
     const [mangas, setMangas] = useState([]);
-    const [paginas,setPaginas] = useState([]);
     const { pageNumber} = useParams();
     
-    useEffect(() => {
-      
-      fetch('http://localhost:8080/products/?page=0' + pageNumber + '&size=2').then((response) => response.json()).then(data => setMangas(data.content));
-    
-      fetch('http://localhost:8080/products/?page=' + pageNumber + '&size=2').then((response) => response.json()).then(paginacion => setPaginas(paginacion.pageable));
-    }, [pageNumber]);
+    useEffect(() => {   
+        fetch('http://localhost:8080/products/?page=' + pageNumber + '&size=2').then((response) => response.json()).then(data => setMangas(data));
+    }, [pageNumber]); 
   
   
   
-    return <ListProduct mangas={mangas} paginas = {paginas}/>;
+    return <ListProduct mangas={mangas} />;
   };
   
   export default Productos;

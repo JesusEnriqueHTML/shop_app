@@ -18,6 +18,7 @@ import Form from './components/Form';
 import InicioSesion from './components/InicioSesion';
 import Identificarse from './components/Identificarse';
 import Pagination from './components/Pagination';
+import Search from './components/Buscar';
 
 
 
@@ -37,6 +38,9 @@ const App = () => (
     </Route>
     <Route path="/products/:pageNumber">
       < Productos />
+    </Route>
+    <Route path="/query/:search">
+      <Search />
     </Route>
     <Route path="/nuevo/:mangaId">
         <Nuevo />

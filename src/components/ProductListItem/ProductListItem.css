@@ -1,0 +1,14 @@
+.dalgo {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+  }
+  
+  .dalgo:hover {
+    -webkit-box-shadow: 2px 2px 5px #999;
+    -moz-box-shadow: 2px 2px 5px #999;
+    filter: shadow(color=#a83291, direction=135, strength=2);  }
+
+  .titulo{
+    font-size: 200%;
+    color: #a83291;
+  }

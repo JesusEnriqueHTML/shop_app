@@ -11,7 +11,7 @@ const Buscar = () => {
     const { search } = useParams();
     
     useEffect(() => {   
-        fetch('http://localhost:8080/search/' + search + '/?page=0&size=2').then((response) => response.json()).then(data => setMangas(data));
+        fetch('http://localhost:8080/api/manga/search/' + search + '/?page=0&size=2').then((response) => response.json()).then(data => setMangas(data));
     }, [search]); 
   
   

@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
 import { 
     BrowserRouter as Router,
     Redirect,
@@ -17,16 +18,41 @@ import Destacados from './components/Destacados';
 import Form from './components/Form';
 import InicioSesion from './components/InicioSesion';
 import Identificarse from './components/Identificarse';
-import Pagination from './components/Pagination';
+import Carrito from './components/Carrito';
 import Search from './components/Buscar';
+import Navbar2 from './components/Navbar2';
 
 
+const App = () => {
+
+  const [carrito,setCarrito] = useState([])
+
+const addProduct = (props) => {
+
+setCarrito ([...carrito, props])
 
 
-const App = () => (
+console.log(carrito)
+
+}
+
+useEffect(() => {
+ 
+}, [carrito]);
+
+const onDelete = (index) => {
+    
+
+
+  setCarrito(carrito.filter((producto, idx) => idx !== index));
+  
+  
+  }
+
+return(
 <Router>
   <Header/>
-  <Navbar />
+  <Navbar2 />
   <Redirect
     from="/"
     to="/home" />
@@ -43,24 +69,28 @@ const App = () => (
       <Search />
     </Route>
     <Route path="/nuevo/:mangaId">
-        <Nuevo />
+        <Nuevo addProduct={addProduct} />
     </Route>
     <Route path="/form/identificarse">
-    <Form />
-    <Identificarse />
+      <Form />
+      <Identificarse />
     </Route>
     <Route path="/form/inicioSesion">
-    <Form />
-    <InicioSesion />
+      <Form />
+      <InicioSesion />
     </Route>
     <Route path="/form/identificarse">
-    <Form />
-    <Identificarse />
+      <Form />
+      <Identificarse />
+    </Route>
+    <Route path="/comprar">
+      <Carrito onDelete={onDelete} carrito={carrito} />
     </Route>
   </Switch>
   </div>
   <Footer />
 </Router>
-);
+)
+}
 
 export default App;

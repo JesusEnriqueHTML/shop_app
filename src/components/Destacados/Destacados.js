@@ -6,7 +6,7 @@ const Destacados = () => {
     const[mangas, setMangas] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/manga`).then(response => response.json())
+        fetch(`http://localhost:8080/api/manga/manga`).then(response => response.json())
         .then(data => setMangas(data));
     }, []);
     

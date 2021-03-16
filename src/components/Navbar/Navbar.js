@@ -10,7 +10,14 @@ import logo1 from './jhonny1.png';
 const Navbar = () => {
 
     const[search, setSearch] = useState({});
+ const user = JSON.parse(localStorage.getItem('user'));
+  const [buscador, setBuscador] = useState("");
+  
 
+  const logout = () => {
+    window.location = '/home';
+    window.localStorage.clear("user");
+  }
     return (
         <nav className="navbar navbar-expand-lg navbar-light sticky-top justify-content-between">
         <div className="container-fluid barraDeNavegacion ">
@@ -27,19 +34,32 @@ const Navbar = () => {
                         <NavLink to='/products/0' className='nav-link'>Productos</NavLink>
                     </li>
 
-                    <form className="form-inline mr-5 ml-3 mb-2">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(event) => setSearch(event.target.value)}/>
-                        <NavLink to={`/query/${search}`}><button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button></NavLink>
+
+
+
+                    <form className="form-inline mr-5 ml-3 mb-2 row">
+                        <input className="form-control mr-sm-2 col" type="search" placeholder="Search" aria-label="Search" onChange={(event) => setSearch(event.target.value)}/>
+                        <NavLink to={`/query/${search}`} className="col"><button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button></NavLink>
                     </form>
 
                     </ul>
-                    <div className="btn-group mt-2 mb-3" role="group" aria-label="Basic example">
-                    <NavLink to='/form/identificarse' className='nav-link'><button type="button" className="btn btn-dark mr-1">Inicar Sesion</button></NavLink>
+
+
+
+                    
+                    <div className="btn-group mt-2 mb-3 ml-5" role="group" aria-label="Basic example">
                     <NavLink to='/form/inicioSesion' className='nav-link'><button type="button" className="btn btn-dark mr-1">Registrarse</button></NavLink>
-                    </div>
-       
-
-
+                    {user && (
+        
+       <NavLink to = '/home'  className="nav-item p-2 navitem">  <button type="button" className="btn btn-dark mr-1" onClick = {logout}> {user.username}</button></NavLink>
+        ) }
+        {user && (  <img src={logo} className="carrito" />
+        )}
+  
+       {!user &&  (
+       <NavLink to='/form/identificarse' className='nav-link'><button type="button" className="btn btn-dark mr-1">Iniciar Sesion</button></NavLink>
+        )}
+        </div>
             </div>
             </div>
         </nav>

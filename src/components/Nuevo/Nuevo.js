@@ -2,11 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Nuevo.css';
 
-const Nuevo = () => {
+const Nuevo = ({addProduct}) => {
+  
   const [manga, setManga] = useState(null);
-  const [saga, setSaga] = useState(null);
 
   const { mangaId } = useParams();
+
+  const handleClick = () => {
+    addProduct(manga)
+  }
 
   const setImage = useCallback((manga) =>{
     switch (manga.name) {
@@ -19,12 +23,20 @@ const Nuevo = () => {
       case "JoJo Part5":
         return "/resources/Jojo-part4/moirioh4.png";
 
+      case "Hombre y Gato":
+        return "/resources/gato/michi.png";
+
+        case "Kuroko Basquet":
+          return "/resources/kuroko/baloncest.png";
+
+          case "Un Gato":
+            return "/resources/absurdo/absurdo1.png";
       default:
         return "xdddd";
     }
   });
   useEffect(() => {
-    fetch(`http://localhost:8080/manga/${mangaId}`).then((response) => response.json()).then(data => setManga(data));
+    fetch(`http://localhost:8080/api/manga/manga/${mangaId}`).then((response) => response.json()).then(data => setManga(data));
 }, []);
 
   return manga && Object.keys(manga).length !== 0 ? <>
@@ -34,17 +46,56 @@ const Nuevo = () => {
     </div>
     <div className="container-fluid ml-5 col info">
       <div className="row imagenIf ">
-    <img src= { setImage(manga) } alt={manga.name} className="imagenesdd mr-1" />
-      <p className="display-4 text-center d-flex justify-content-between">
+    <img src= { setImage(manga) } alt={manga.name} className="imagenesdd mr-1 zoom" />
+      <p className="display-4 text-center">
         {manga.name}
         </p>
+      <p>{manga.precio}</p>
         </div>
         <p className="text-center">Tomo volumen{manga.numero}</p>
-        <p className="small">{manga.resumen}</p>
       <br/>
       <h2>Descripcion:</h2> <br/>
         <p>{manga.descripcion}</p>
-        <button type="button" className="btn btn-primary btn-lg btn-block mt-3">Añadir al Carrito</button>
+<div className="text-center row mb-3 w-75 mx-auto">
+      <img src="/resources/promocion.png" className="col w-25"></img>
+</div>
+        <button type="button" class="btn btn-dark btn-lg btn-block" onClick={handleClick}> Agregar a carrito</button>
+    </div>
+    <div class="mt-5 row justify-content-md-center container mx-auto">
+      <div className="container col">
+        <p className="small">{manga.resumen}</p>
+        </div>
+      <div className="container col">
+      <table class="table table-dark">
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td>Autor</td>
+      <td>{manga.author}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>ISBM</td>
+      <td>{manga.isbm}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Idiomas</td>
+      <td>{manga.idioma}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Nº de Paginas</td>
+      <td>{manga.paginas}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Coleccion</td>
+      <td>{manga.coleccion}</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
     </div>
   </div>
   </> 

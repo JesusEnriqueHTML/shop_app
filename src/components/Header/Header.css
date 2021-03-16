@@ -1,6 +1,7 @@
 header{
-    background-image: url(pink.jpg);
+    background-image: url("pink2.jpg");
     background-size: cover;
+    background-position: center;
     border: 1px solid rgb(255, 102, 153);
 }
 .title{

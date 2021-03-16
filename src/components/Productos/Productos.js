@@ -45,7 +45,7 @@ const Productos = () => {
     const { pageNumber} = useParams();
     
     useEffect(() => {   
-        fetch('http://localhost:8080/products/?page=' + pageNumber + '&size=2').then((response) => response.json()).then(data => setMangas(data));
+        fetch('http://localhost:8080/api/manga/products/?page=' + pageNumber + '&size=2').then((response) => response.json()).then(data => setMangas(data));
     }, [pageNumber]); 
   
   

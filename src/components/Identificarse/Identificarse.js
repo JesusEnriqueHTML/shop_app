@@ -1,27 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Identificarse.css';
 
-const Identificarse = () => 
-<form className="container mb-3">
-  <div className="form-group">
-    <label for="name">Nombre</label>
-    <input type="text" className="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter your name"/>
-    <small id="nameHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+const Identificarse = () => {
+  const [errorEdad, setErrorEdad] = useState(null);
+  const [mensaje, setMensaje] = useState(null);
+  const formulario = {
 
-    <label for="Apellido">Apellido</label>
-    <input type="text" className="form-control" id="Apellido" aria-describedby="ApellidoHelp" placeholder="Enter your Apellido"/>
-    <small id="ApellidoHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+    username: '',
+    password: '',
+    
 
-  </div>
-  <div className="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
-  </div>
-  <div className="form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
+  }
+
+  const [formState, setFormState] = useState(formulario);
+
+  const handleChange = event => {
+    setFormState({
+      ...formState,
+      [event.target.name]: event.target.value,
+    })
+  }
+
+
+  const onSubmit = (event) => {
+    event.preventDefault()
+
+
+    const d = new Date();
+    const c = new Date(formState.birthdate);
+    const a = c.getFullYear();
+    const n = d.getFullYear();
+
+    const edad = n - a;
+    if (edad < 18) {
+      setErrorEdad("Tienes que ser mayor de 18")
+      setMensaje(null);
+      return;
+    } 
+
+    fetch('http://localhost:8080/api/auth/signin', {
+      
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify(formState)
+    }).then((response) => response.json()).then(data => {
+       setMensaje(data.message);
+       if(data.status !== 401){
+         localStorage.setItem("user", JSON.stringify(data));
+         window.location="/home";
+       }
+    }
+    );
+}
+return(
+<form className="container mb-3 mt-2 text-center" onSubmit={onSubmit}>
+<div className="form-row mx-auto text-center">
+        <div className="form-group col-md-6 mx-auto">
+          <label >Nombre de Usuario</label>
+          <input type="text" className="form-control" name="username" placeholder="Usuario" onChange={handleChange} minLength="3" maxLength="20" required />
+        </div>
+        </div>
+
+        <div className="form-row">
+
+        <div className="form-group col-md-6 mx-auto">
+          <label>Contraseña</label>
+          <input type="password" className="form-control" name="password" placeholder="Password" onChange={handleChange} minLength="6" maxLength ="40" />
+        </div>
+      </div>
+
+      <div className="container-fluid text-center">
+      {mensaje && <p> {mensaje}</p>}
+        <button type="submit" className="btn btn-dark mt-3">Sign in</button>
+      </div>
 </form>
-;
+);
+}
 export default Identificarse;

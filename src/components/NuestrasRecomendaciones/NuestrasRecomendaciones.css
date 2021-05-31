@@ -1,0 +1,15 @@
+.carousel-item > img {
+    max-width: 100%;
+    min-width: none;
+}
+.recomendacion{
+    height:15%;
+    background-color: black;
+    border-radius: 15%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+}
+.recomendacion > p{
+    font-size:11px;
+    color: white;
+}

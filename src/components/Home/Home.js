@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
+import Iframe from 'react-iframe'
 
 
 
@@ -7,22 +8,38 @@ import './Home.css';
 const Home = () => {
   
     return <>
-    <div className=" row container mx-auto mb-2">
-    <div class="descripcion w-50 col">
+    <div className=" row container-fluid mx-auto mb-2">
+    <div class="descripcion w-50 col presentacion container">
         <h1>Nuestra ilusion es levantarnos cada dia para seguir nuestro camino</h1>
-        <p>En nombre de Absolute comics, les damos la más sincera bienvenida a nuestra página web, 
-            en la que, esperamos, encontrarán toda la información que necesiten acerca de nuestras actividades.<br/>
-        El objetivo principal de esta web es dar a conocer todo el mundo del manga y del anime, y a su vez que la gente disfrute con ellos 
-        dando la oportunidad de disfrutar de ellos.
-        <div class="d-flex justify-content-center">
-        <img src="/resources/welcome.gif" class="mt-2 img-thumbnail w-50 "></img>
-        </div>
+        <p>Somos la tienda online de la libreria absolute comics, un negocio familiar y independiente especializado en la venta de comics, manga, literatura fantastica y horrors
+        Fundada el 23 de Marzo de 2021, y esperamos en poco tiempo llegar a ser una de la referencias dentro del sector de la venta de productos Frikis.
+<br/>
+        Absolute Comics es una libreria especializada en comics pero NO es una libreria de comics al uso, como las que normalmente esteais acostumbradas a ver, ya que su estilo, enfoque y disposicion diferente
+        a lo que es habitual para los aficcionados encontar en establecimientos como este.
+<br/>
+        No pertenexemos a ninguna editoria o cadena de tiendas. Y tampoco los dueños son copropietarios o propietarios de editoriales, Es un punto de vente independiente que no esta influizado ni depende de ninguna
+        corporacion, estrategias etc   
+            
+            
         </p>  
-        </div>            
-            <iframe className="w-25 col" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=calle%20Rio%20xunco+(Absolute%20Comics)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-        
+
+        <div class="d-flex justify-content-center row">
+        <img src="/resources/welcome.gif" class="mt-2 img-thumbnail col-md-5 "></img>
+<div class="mt-2 w-50 col-md-5">
+<p className="">Nos podras encontrar en nuestra tienda fisica en Calle Rio Xunco nº1</p>
+<Iframe url="http://www.youtube.com/embed/xDMP3i36naA"
+        width="450px"
+        height="450px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"/></div>
+        </div>
+      
+        </div>   
+                  
     </div>       
-    <h1 className="text-center border display-3">Productos Destacados Del Mes</h1>
+    
     
 
     </>;

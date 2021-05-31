@@ -1,11 +1,9 @@
 header{
-    background-image: url("pink2.jpg");
-    background-size: cover;
     background-position: center;
-    border: 1px solid rgb(255, 102, 153);
+    background-image: url(banner.png);
+    background-repeat: no-repeat;
+    border: 1px solid black;
 }
-.title{
-    margin-top: 30%;
-}
+
 
 

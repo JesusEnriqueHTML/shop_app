@@ -9,19 +9,26 @@ import {
 
 } from "react-router-dom";
 import Header from './components/Header';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Productos from './components/Productos';
+import Users from './components/Users';
+
 import Nuevo from './components/Nuevo/Nuevo';
+import DetallesUsuario from './components/DetallesUsuario';
+
 import Destacados from './components/Destacados';
+
+import List from './components/List';
+import Edit from './components/Edit';
 import Form from './components/Form';
 import InicioSesion from './components/InicioSesion';
 import Identificarse from './components/Identificarse';
 import Carrito from './components/Carrito';
 import Search from './components/Buscar';
 import Navbar2 from './components/Navbar2';
-
+import NuestrasRecomendaciones from './components/NuestrasRecomendaciones';
+import  NuevoProducto from './components/nuevoProducto';
 
 const App = () => {
 
@@ -43,7 +50,6 @@ useEffect(() => {
 const onDelete = (index) => {
     
 
-
   setCarrito(carrito.filter((producto, idx) => idx !== index));
   
   
@@ -51,8 +57,8 @@ const onDelete = (index) => {
 
 return(
 <Router>
+<Navbar2 />
   <Header/>
-  <Navbar2 />
   <Redirect
     from="/"
     to="/home" />
@@ -60,8 +66,14 @@ return(
   <Switch>
     <Route path="/home">
       <Home />
+      <NuestrasRecomendaciones />
       <Destacados />
+     
     </Route>
+    <Route path="/users/:pageNumber">
+      < Users />
+    </Route>
+
     <Route path="/products/:pageNumber">
       < Productos />
     </Route>
@@ -71,6 +83,22 @@ return(
     <Route path="/nuevo/:mangaId">
         <Nuevo addProduct={addProduct} />
     </Route>
+    
+    <Route path="/list">
+        <List />
+    </Route>
+
+    <Route path="/edit">
+        <Edit />
+    </Route>
+  
+   
+
+
+    <Route path="/DetallesUsuarios/:userId">
+        <DetallesUsuario/>
+    </Route>
+
     <Route path="/form/identificarse">
       <Form />
       <Identificarse />
@@ -85,6 +113,9 @@ return(
     </Route>
     <Route path="/comprar">
       <Carrito onDelete={onDelete} carrito={carrito} />
+    </Route>
+    <Route path="/nuevoProducto">
+      <NuevoProducto />
     </Route>
   </Switch>
   </div>

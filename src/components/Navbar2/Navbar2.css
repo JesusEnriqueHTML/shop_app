@@ -5,9 +5,15 @@
     width: 6%;
 }
 nav{
-    background-color: rgb(255, 102, 153);
+    background-color: black;
+    height: 50%;
 }
-
-.registration{
-    float: right;
+.algo{
+    width: 50px;
+}
+.algo > img{
+    width: 50%;
+}
+.barraNavegacion{
+    width:75%;
 }

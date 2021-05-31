@@ -74,7 +74,7 @@ return(
 
       <div className="container-fluid text-center">
       {mensaje && <p> {mensaje}</p>}
-        <button type="submit" className="btn btn-dark mt-3">Sign in</button>
+        <button type="submit" className="btn btn-lg btn-block btn-dark mt-3">Enviar</button>
       </div>
 </form>
 );

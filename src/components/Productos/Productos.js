@@ -6,37 +6,6 @@ import ListProduct from '../ListProduct';
 import { useParams } from 'react-router-dom';
 
 
-/*
-const Productos = ({ mangas }) =>
-mangas.map(manga =>
-    <ListProduct key={`manga-${manga.id}`} manga={manga} />
-    );
-
-export default Productos;
-
-*/
-/*
-const Productos = () => {
-    const [mangas, setMangas] = useState([]);
-    const query = useQuery();
-    const userId = +query.get("mangaId");
-
-  
-    useEffect(() => {
-        fetch('http://localhost:8080/manga').then(response => response.json()).then(data => setMangas(data));
-    }, []);
-  
-    return <>
-      <h2>Posts</h2>
-      <div className="posts">
-        <ListProduct productos={userId ? mangas.filter(post => mangas.userId === userId) : mangas}/>
-      </div>
-    </>;
-  };
-  
-  export default Productos;
-
-*/
 
 const Productos = () => {
   

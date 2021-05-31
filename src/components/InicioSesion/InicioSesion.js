@@ -93,7 +93,7 @@ return(
       </div>
       <div className="form-row">
       <div className="form-group col-md-2 mx-auto">
-          <label> Date</label>
+          <label>Fecha de Nacimiento</label>
           <input type="date" name="birthdate" className="form-control" required onChange={handleChange} required />
           {errorEdad && <p> {errorEdad}</p>}
         </div>
@@ -101,7 +101,7 @@ return(
 
       <div className="container-fluid text-center">
       {mensaje && <p> {mensaje}</p>}
-        <button type="submit" className="btn btn-dark mt-3">Sign in</button>
+        <button type="submit" className="btn btn-lg btn-block btn-dark mt-3">Enviar</button>
       </div>
 </form>
 );

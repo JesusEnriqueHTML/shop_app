@@ -28,8 +28,15 @@
     text-align: center;
 }
 body {
-    background-color:pink;
+    background-image: url("fondo1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .welcome{
     margin-left: 19%;
+}
+.recomendados{
+    background-color:black;
+    color: white;
 }

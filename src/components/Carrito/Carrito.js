@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import StripeButton from "../stripeButtom/stripeButtom";
 
 
 
@@ -11,25 +12,35 @@ const Carrito= ({carrito, onDelete}) => {
         carrito.map((cestaprueba) => total += cestaprueba.precio)
         setPrecioTotal(total)
     }, [carrito])
+
+    const refreshPage = ()=>{
+        window.location.reload();
+     }
+
 return (
   
 
-<div className="container mx-auto row altaCesta">
+<div className="container w-50  mx-auto altaCesta">
 {carrito.map((cestaprueba, index) => {
     return (
-    
-        <div className="mr-2 mb-3 row mx-auto">
+     
+        <div className=" mb-3 row  d-flex justify-content-around mx-auto">
         <div className="col">
-        <img className="imgcar  w-25 img-fluid" src={cestaprueba.imagen} alt={cestaprueba.name}/>
+        <img className="imgcar mt-5 w-50 img-fluid" src={cestaprueba.imagen} alt={cestaprueba.name}/>
         </div>
-        <div className="col">
-        <p className="display-3">{cestaprueba.name}</p> <button onClick={() => onDelete(index)}>Borrar</button>
+        <div className="col mt-4">
+        <h2 className="m-5 text-center">{cestaprueba.name}</h2> 
+        <button className="btn btn-dark mt-2 btn-lg btn-block" onClick={() => onDelete(index)}>Borrar</button>
         </div>
         </div>
     )
 })}
-<div className="mx-auto row text-center precio">
-<p> Total: {precioTotal}</p>
+<hr className="w-100"/>
+<div className="mx-auto text-center precio">
+<p className="text-center display-3"> Total: {precioTotal}</p>
+</div>
+<div className="mx-auto text-center">
+ <StripeButton price={precioTotal} carrito={carrito}/>
 </div>
 </div>
 )

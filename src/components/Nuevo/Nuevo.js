@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Nuevo.css';
+import {NavLink, Link} from 'react-router-dom';
+
 
 const Nuevo = ({addProduct}) => {
   
@@ -9,8 +11,27 @@ const Nuevo = ({addProduct}) => {
   const { mangaId } = useParams();
 
   const handleClick = () => {
-    addProduct(manga)
+    addProduct(manga);
+  
+
   }
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  let admin = null;
+  if (user) {
+
+    user.roles.forEach(roles => {
+
+      if (roles === "ROLE_ADMIN") {
+
+        admin = roles;
+
+      }
+
+    });
+  }
+
+
 
   const setImage = useCallback((manga) =>{
     switch (manga.name) {
@@ -50,16 +71,26 @@ const Nuevo = ({addProduct}) => {
       <p className="display-4 text-center">
         {manga.name}
         </p>
-      <p>{manga.precio}</p>
         </div>
         <p className="text-center">Tomo volumen{manga.numero}</p>
+        <p className="text-center">Precio = {manga.precio} euros</p>
+        <p className="text-center">Stock = {manga.stock}</p>
+
       <br/>
       <h2>Descripcion:</h2> <br/>
         <p>{manga.descripcion}</p>
 <div className="text-center row mb-3 w-75 mx-auto">
       <img src="/resources/promocion.png" className="col w-25"></img>
 </div>
+{manga.stock <= "0" &&  (
+<p className="text-center">No hay stock</p>
+)}
+{user && admin && (
+  <Link to={`/EditarProductos/${manga.id}`}><button type="button" class="btn btn-dark btn-lg btn-block"><p className="text-white mt-2">Editar</p></button></Link>
+                   )}
         <button type="button" class="btn btn-dark btn-lg btn-block" onClick={handleClick}> Agregar a carrito</button>
+
+
     </div>
     <div class="mt-5 row justify-content-md-center container mx-auto">
       <div className="container col">
@@ -95,6 +126,7 @@ const Nuevo = ({addProduct}) => {
     </tr>
   </tbody>
 </table>
+
       </div>
     </div>
   </div>

@@ -48,7 +48,6 @@ const ProductListItem = ({ manga }) =>
 </div>
 <div className="container text-center mb-2">
 <Link to={`/nuevo/${manga.id}`}><button type="button" class="btn btn-dark btn-lg btn-block"><p className="text-white mt-2">Detalles</p></button></Link>
-<Link to={`/EditarProductos/${manga.id}`}><button type="button" class="btn btn-dark btn-lg btn-block"><p className="text-white mt-2">Editar</p></button></Link>
 
 </div>
 </div>

@@ -45,8 +45,8 @@ export default class List extends Component {
                    <td>{data.name}</td>
                   
                    <td>
-                      <Link class="btn btn-outline-info" to={"edit/"+data.id}>Edit</Link>
-                     <a  onClick={()=>this.onClickDelete(i,data.id)} href="#" class="btn btn-danger"> Delete </a>                   </td>
+                   <Link to={`/list/editarProducto/${data.id}`}>Detalles</Link>
+                    <a  onClick={()=>this.onClickDelete(i,data.id)} href="#" class="btn btn-danger"> Delete </a>                   </td>
                  </tr>
                )
              })

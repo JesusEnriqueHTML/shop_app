@@ -20,7 +20,8 @@ import DetallesUsuario from './components/DetallesUsuario';
 import Destacados from './components/Destacados';
 
 import List from './components/List';
-import Edit from './components/Edit';
+import EditarProducto from './components/List';
+
 import Form from './components/Form';
 import InicioSesion from './components/InicioSesion';
 import Identificarse from './components/Identificarse';
@@ -87,10 +88,10 @@ return(
     <Route path="/list">
         <List />
     </Route>
-
-    <Route path="/edit">
-        <Edit />
+    <Route path="/list/editarProducto/:mangaId">
+        <EditarProducto />
     </Route>
+   
   
    
 

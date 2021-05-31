@@ -33,7 +33,6 @@ ProductService.update = async (state) => {
 
   const datapost = {
     name: state.fieldName,
-   
   }
 
   const urlUpdate = baseUrl+"/update/"+state.id

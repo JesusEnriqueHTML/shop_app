@@ -8,7 +8,7 @@ export default class List extends Component {
   {
     super()
     this.state = {
-      listEmployee:[]
+      listManga:[]
     }
   }
 
@@ -18,7 +18,7 @@ export default class List extends Component {
      const res = await ProductService.list()
      console.log(res);
      if (res.success) {
-       this.setState({listEmployee:res.list})
+       this.setState({listManga:res.list})
      }
      else {
        alert("Error ==>"+res.message)
@@ -32,20 +32,21 @@ export default class List extends Component {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-             
+             <th scope="col">ISBM</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
           {
-             this.state.listEmployee.map((data, i)=>{
+             this.state.listManga.map((data, i)=>{
                return(
                  <tr>
 <th scope="row">{data.id}</th>
                    <td>{data.name}</td>
+                   <td>{data.isbm}</td>
                   
                    <td>
-                   <Link to={`/list/editarProducto/${data.id}`}>Detalles</Link>
+                   <Link class="btn btn-outline-info" to={"/edit/"+data.id}>Edit</Link>
                     <a  onClick={()=>this.onClickDelete(i,data.id)} href="#" class="btn btn-danger"> Delete </a>                   </td>
                  </tr>
                )
@@ -64,9 +65,9 @@ export default class List extends Component {
 
       if (res.success) {
         alert(res.message)
-        const list = this.state.listEmployee
+        const list = this.state.listManga
         list.splice(i,1)
-        this.setState({listEmployee:list})
+        this.setState({listManga:list})
       }
       else{
         console.log(res); alert(JSON.stringify(res))

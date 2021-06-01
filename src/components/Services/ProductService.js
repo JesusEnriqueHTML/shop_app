@@ -33,6 +33,18 @@ ProductService.update = async (state) => {
 
   const datapost = {
     name: state.fieldName,
+    precio: state.fieldPrecio,
+    descripcion: state.fieldDescripcion,
+    numero: state.fieldNumero,
+    imagen: state.fieldImagen,
+    resumen: state.fieldResumen,
+    paginas: state.fieldPaginas,
+    idioma: state.fieldIdioma,
+    author: state.fieldAuthor,
+    coleccion: state.fieldColeccion,
+    isbm: state.fieldIsbm,
+    tipo: state.fieldTipo,
+    stock: state.fieldStock
   }
 
   const urlUpdate = baseUrl+"/update/"+state.id

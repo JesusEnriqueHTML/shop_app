@@ -13,14 +13,12 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Productos from './components/Productos';
 import Users from './components/Users';
-
 import Nuevo from './components/Nuevo/Nuevo';
 import DetallesUsuario from './components/DetallesUsuario';
 
 import Destacados from './components/Destacados';
 
 import List from './components/List';
-import EditarProducto from './components/List';
 
 import Form from './components/Form';
 import InicioSesion from './components/InicioSesion';
@@ -30,6 +28,7 @@ import Search from './components/Buscar';
 import Navbar2 from './components/Navbar2';
 import NuestrasRecomendaciones from './components/NuestrasRecomendaciones';
 import  NuevoProducto from './components/nuevoProducto';
+import Edit from './components/Edit';
 
 const App = () => {
 
@@ -73,6 +72,7 @@ return(
     </Route>
     <Route path="/users/:pageNumber">
       < Users />
+    
     </Route>
 
     <Route path="/products/:pageNumber">
@@ -88,9 +88,10 @@ return(
     <Route path="/list">
         <List />
     </Route>
-    <Route path="/list/editarProducto/:mangaId">
-        <EditarProducto />
-    </Route>
+    
+    <Route path="/edit/:id" component={Edit} />
+
+  
    
   
    
